@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-       <div className={`${dark?"text-white bg-black":"text-black bg-white"}`}>
+       <div className={`${dark?"text-white bg-black":"text-black bg-white"} overflow-x-hidden min-h-screen `}>
        <div className="w-[90vw] mx-auto py-4">
           <Navbar dark={dark} setDark={setDark}/>
         </div>
