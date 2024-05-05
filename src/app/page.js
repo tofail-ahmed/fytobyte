@@ -11,7 +11,7 @@ const HeroSection = () => {
   const { dark } = useThemeContext();
 
   return (
-    <div className="h-[100vh] mb-96">
+    <div className="h-auto ">
       {/* Background image for large screens */}
       <div
         className="hidden lg:block bg-cover bg-center absolute inset-0"

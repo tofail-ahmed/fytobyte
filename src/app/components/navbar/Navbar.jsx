@@ -8,18 +8,17 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdWifiCalling3 } from "react-icons/md";
 import {useThemeContext} from "../../lib/provider/ThemeContext"
-
+import Container from "../Container/Conatiner"
 
 
 const Navbar = () => {
   const pathName = usePathname();
   const { dark,toggleTheme } = useThemeContext();
 
-  // const toggleMood = () => {
-  //   setDark((prevDark) => !prevDark);
-  // };
+  
   return (
-    <div className="navbar relative backdrop-blur-xl rounded-xl flex justify-between items-center p-2 z-50">
+   <Container>
+     <div className="navbar relative backdrop-blur-xl rounded-xl flex justify-between items-center p-2 z-50">
       <div className="navbar-start">
         <div>
           <Image src={logo} alt="logo" />
@@ -102,6 +101,7 @@ const Navbar = () => {
         )}
       </div>
     </div>
+   </Container>
   );
 };
 

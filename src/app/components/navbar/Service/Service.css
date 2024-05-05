@@ -1,0 +1,17 @@
+.first-div {
+      width: calc(100% / 3); 
+    }
+    
+    .second-div {
+      width: calc((100% / 3) * 2); 
+    }
+    
+    .card-gradient2{
+      background-image: linear-gradient(to bottom right, #f306f359, #a006fa)
+    }
+    .card-gradient1{
+      background-image: linear-gradient(to bottom left,#f306f359, #a006fa)
+    }
+    .card-gradient3{
+      background-image: linear-gradient(to bottom right,#a006fa,#f306f359 )
+    }

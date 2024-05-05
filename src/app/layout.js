@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
 
 function RootContent({ children }) {
   const {dark}=useThemeContext();
-  console.log(dark)
+  // console.log(dark)
   return (
     <html lang="en">
       <body className={inter.className}>
