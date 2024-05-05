@@ -41,7 +41,7 @@ const Navbar = () => {
               />
             </svg>
           </div>
-         
+
           <ul className="menu menu-sm dropdown-content mt-3 me-6 z-[1] p-2 shadow bg-base-100 rounded-box w-auto">
             {[
               { href: "/", label: "Home" },
@@ -59,39 +59,38 @@ const Navbar = () => {
                 {item.label}
               </Link>
             ))}
+            <button className="flex justify-center items-center rounded-md border-2 border-zinc-900 p-1 ">
+              <h1>Call Us</h1>
+              <MdWifiCalling3 />
+            </button>
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex absolute lg:left-[20vw]">
-        
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">
-  {[
-    { href: "/", label: "Home" },
-    { href: "/contact", label: "Contact" },
-    { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" }
-  ].map((item, index) => (
-    <Link
-      key={index}
-      href={item.href}
-      className={`text-green-600 text-xl m-2 ${
-        pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
-      }`}
-    >
-      {item.label}s
-    </Link>
-  ))}
-</ul>
-
-        
+          {[
+            { href: "/", label: "Home" },
+            { href: "/contact", label: "Contact" },
+            { href: "/about", label: "About" },
+            { href: "/blog", label: "Blog" },
+          ].map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className={`text-green-600 text-xl m-2 ${
+                pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
+              }`}
+            >
+              {item.label}s
+            </Link>
+          ))}
+          <button className="flex justify-center items-center rounded-md border-2 border-zinc-900 p-1 ">
+            <h1>Call Us</h1>
+            <MdWifiCalling3 />
+          </button>
+        </ul>
       </div>
-      <div className="navbar-end flex items-center absolute lg:right-[20px] right-[20vw] gap-4">
-      <button className="flex justify-center items-center rounded-md border-2 border-zinc-900 p-1 ">
-<h1>
-  Call Us
-</h1>
-<MdWifiCalling3 />
-</button>
+      <div className="navbar-end flex items-center   gap-4">
         {dark ? (
           <button onClick={toggleTheme}>
             <MdSunny />
