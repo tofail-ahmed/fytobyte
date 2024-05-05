@@ -6,14 +6,16 @@ import { MdSunny } from "react-icons/md";
 import logo from "../../../../public/assets/logo1.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import NavItem from "./navItem";
+import { MdWifiCalling3 } from "react-icons/md";
+
+
 
 const Navbar = ({ dark, setDark }) => {
+  const pathName = usePathname();
+
   const toggleMood = () => {
     setDark((prevDark) => !prevDark);
   };
-  const pathName = usePathname();
-  const mode = "dark";
   return (
     <div className="navbar relative backdrop-blur-xl rounded-xl flex justify-between items-center p-2 z-50">
       <div className="navbar-start">
@@ -37,79 +39,57 @@ const Navbar = ({ dark, setDark }) => {
               />
             </svg>
           </div>
+         
           <ul className="menu menu-sm dropdown-content mt-3 me-6 z-[1] p-2 shadow bg-base-100 rounded-box w-auto">
-            <Link
-              href="/"
-              className={`text-green-600 text-xl m-2 ${
-                pathName === "/" ? "border-b-2 border-b-yellow-500" : ""
-              }`}
-            >
-              Home{" "}
-            </Link>
-            <Link
-              href="/contact"
-              className={`text-green-600 text-xl m-2 ${
-                pathName === "/contact" ? " border-b-2 border-b-yellow-500" : ""
-              }`}
-            >
-              Contact{" "}
-            </Link>
-            <Link
-              href="/about"
-              className={`text-green-600 text-xl m-2 ${
-                pathName === "/about" ? " border-b-2 border-b-yellow-500" : ""
-              }`}
-            >
-              About{" "}
-            </Link>
-            <Link
-              href="/blog"
-              className={`text-green-600 text-xl m-2 ${
-                pathName === "/blog" ? "border-b-2 border-b-yellow-500" : ""
-              }`}
-            >
-              Blog{" "}
-            </Link>
+            {[
+              { href: "/", label: "Home" },
+              { href: "/contact", label: "Contact" },
+              { href: "/about", label: "About" },
+              { href: "/blog", label: "Blog" },
+            ].map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className={`text-green-600 text-xl m-2 ${
+                  pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
           </ul>
         </div>
       </div>
-      <div className="navbar-center hidden lg:flex absolute lg:left-[30vw]">
+      <div className="navbar-center hidden lg:flex absolute lg:left-[20vw]">
+        
         <ul className="menu menu-horizontal px-1">
-          <Link
-            href="/"
-            className={`text-green-600 text-xl m-2 ${
-              pathName === "/" ? "border-b-2 border-b-yellow-500" : ""
-            }`}
-          >
-            Home{" "}
-          </Link>
-          <Link
-            href="/contact"
-            className={`text-green-600 text-xl m-2 ${
-              pathName === "/contact" ? " border-b-2 border-b-yellow-500" : ""
-            }`}
-          >
-            Contact{" "}
-          </Link>
-          <Link
-            href="/about"
-            className={`text-green-600 text-xl m-2 ${
-              pathName === "/about" ? " border-b-2 border-b-yellow-500" : ""
-            }`}
-          >
-            About
-          </Link>
-          <Link
-            href="/blog"
-            className={`text-green-600 text-xl m-2 ${
-              pathName === "/blog" ? "border-b-2 border-b-yellow-500" : ""
-            }`}
-          >
-            Blog{" "}
-          </Link>
-        </ul>
+  {[
+    { href: "/", label: "Home" },
+    { href: "/contact", label: "Contact" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" }
+  ].map((item, index) => (
+    <Link
+      key={index}
+      href={item.href}
+      className={`text-green-600 text-xl m-2 ${
+        pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
+      }`}
+    >
+      {item.label}s
+    </Link>
+  ))}
+</ul>
+
+        
       </div>
-      <div className="navbar-end flex items-center absolute lg:right-[2vw] right-[20vw]">
+      <div className="navbar-end flex items-center absolute lg:right-[20px] right-[20vw] gap-4">
+      <button className="flex justify-center items-center rounded-md border-2 border-zinc-900 p-1 ">
+<h1>
+  Call Us
+</h1>
+<MdWifiCalling3 />
+</button>
         {dark ? (
           <button onClick={toggleMood}>
             <MdSunny />

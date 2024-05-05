@@ -2,7 +2,9 @@ import React from 'react'
 
 const AboutPage = () => {
   return (
-    <div>AboutPage</div>
+    <div className=''>
+      <h1 className='pt-32'>AboutPage</h1>
+    </div>
   )
 }
 
