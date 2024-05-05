@@ -1,13 +1,16 @@
 
-
+"use client"
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Image from "next/image";
 import ball from "../../public/assets/ball.png";
 import Service from "./components/navbar/Service/Service.jsx"
+import { useThemeContext } from "./lib/provider/ThemeContext";
 
 
 const page = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const {dark}=useThemeContext()
   return (
    
       <div className="min-h-[120vh] -mt-32 mb-96">
@@ -29,10 +32,10 @@ const page = () => {
             </h1>
           </div>
           <div className="flex justify-center items-center gap-8">
-            <button className="bg-black text-white p-2 rounded-md">
+            <button className={`${dark?"bg-white text-black":"bg-black text-white"} p-2 rounded-md`}>
               Get Started
             </button>
-            <button className="bg-black text-white p-2 rounded-md">
+            <button className={`${dark?"bg-white text-black":"bg-black text-white"} p-2 rounded-md`}>
               Join Us
             </button>
           </div>

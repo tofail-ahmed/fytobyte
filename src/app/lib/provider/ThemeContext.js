@@ -1,4 +1,5 @@
 // components/context/ThemeContext.js
+"use client"
 import React, { createContext, useContext } from "react";
 
 const ThemeContext = createContext();
