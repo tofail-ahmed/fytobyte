@@ -7,15 +7,17 @@ import logo from "../../../../public/assets/logo1.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MdWifiCalling3 } from "react-icons/md";
+import {useThemeContext} from "../../lib/provider/ThemeContext"
 
 
 
-const Navbar = ({ dark, setDark }) => {
+const Navbar = () => {
   const pathName = usePathname();
+  const { dark,toggleTheme } = useThemeContext();
 
-  const toggleMood = () => {
-    setDark((prevDark) => !prevDark);
-  };
+  // const toggleMood = () => {
+  //   setDark((prevDark) => !prevDark);
+  // };
   return (
     <div className="navbar relative backdrop-blur-xl rounded-xl flex justify-between items-center p-2 z-50">
       <div className="navbar-start">
@@ -91,11 +93,11 @@ const Navbar = ({ dark, setDark }) => {
 <MdWifiCalling3 />
 </button>
         {dark ? (
-          <button onClick={toggleMood}>
+          <button onClick={toggleTheme}>
             <MdSunny />
           </button>
         ) : (
-          <button onClick={toggleMood}>
+          <button onClick={toggleTheme}>
             <FaMoon />
           </button>
         )}
