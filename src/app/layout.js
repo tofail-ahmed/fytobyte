@@ -28,12 +28,14 @@ function RootContent({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <div className={`${dark?"text-white bg-slate-900":"text-black bg-white"} overflow-x-hidden min-h-screen`}>
-          <div className="w-[90vw] mx-auto py-4">
+          <div className=" py-4">
             <Navbar />
           </div>
           {children}
-          <Footer/>
         </div>
+          <div className={`${dark?"text-white bg-slate-900":"text-black bg-white"} overflow-x-hidden min-h-screen`}> 
+          <Footer/>
+          </div>
         
       </body>
     </html>

@@ -1,20 +1,57 @@
 
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import Image from "next/image";
 import ball from "../../public/assets/ball.png";
 import Service from "./components/navbar/Service/Service.jsx";
 import { useThemeContext } from "./lib/provider/ThemeContext";
 import Solution from "./components/solution/Solution.jsx";
-import Knowledge from "./components/knowledge/Knowledge.jsx"
-import News from "./components/News/News.jsx"
+import Knowledge from "./components/knowledge/Knowledge.jsx";
+import News from "./components/News/News.jsx";
+import { motion } from "framer-motion";
+
 const HeroSection = () => {
+  const [clicked, setClicked] = useState(false);
+  const [animationPosition, setAnimationPosition] = useState({ x: 0, y: 0 });
+
   const { dark } = useThemeContext();
 
+  const handleBackgroundClick = (event) => {
+    setClicked(true);
+    // Get the mouse coordinates relative to the clicked element
+    const x = event.clientX - event.currentTarget.offsetLeft;
+    const y = event.clientY - event.currentTarget.offsetTop;
+
+    // Set the animation position based on the mouse coordinates
+    setAnimationPosition({ x, y });
+
+    setTimeout(() => {
+      setClicked(false);
+      // Reset animation position after a delay (e.g., 1 second)
+      setAnimationPosition({ x: 0, y: 0 });
+    }, 1000); // Adjust the delay duration as needed
+  };
   return (
-    <div className="h-auto ">
-      {/* Background image for large screens */}
+    <div className="h-auto " onClick={handleBackgroundClick}>
+      {clicked && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }} // Initial animation state
+          animate={{
+            opacity: 1,
+            scale: 1,
+            x: animationPosition.x,
+            y: animationPosition.y,
+          }} // Animation to play when clicked
+          transition={{ duration: 0.5 }} // Animation duration
+          style={{
+            position: "absolute",
+            backgroundColor: "blue",
+            width: 100,
+            height: 100,
+          }}
+        />
+      )}
       <div
         className="hidden lg:block bg-cover bg-center absolute inset-0"
         style={{ backgroundImage: "url('/assets/bg.png')" }}
@@ -27,9 +64,9 @@ const HeroSection = () => {
 
       <BallImage />
       <Service />
-      <Solution/>
-      <Knowledge/>
-      <News/>
+      <Solution />
+      <Knowledge />
+      <News />
     </div>
   );
 };
