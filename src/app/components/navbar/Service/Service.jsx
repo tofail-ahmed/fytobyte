@@ -9,7 +9,7 @@ import Image from "next/image";
 const Service = () => {
   const { dark } = useThemeContext();
   return (
-    <div className=" flex justify-center items-center ">
+    <div className=" flex justify-center items-center mx-4">
       <Container className=" mt-96 ">
         <div className="flex justify-center items-center mx-auto">
           <span
@@ -33,7 +33,7 @@ const Service = () => {
           <h1>Websites / Applications / Web3 / Blockchain</h1>
         </div>
         <div className="flex lg:flex-row flex-col gap-4 my-4 p-4">
-          <div className="border-2 border-gray-400 flex flex-col gap-2 justify-center rounded-3xl p-2 lg:first-div w-[50vw] mx-auto card-gradient3">
+          <div className="border-2 border-gray-400 flex flex-col gap-2 justify-center rounded-3xl p-2 lg:w-1/3 w-[50vw] mx-auto card-gradient3">
             <WiDayCloudyWindy className="text-3xl font-semibold" />
             <h1 className="text-4xl font-bold">Lorem Ipsum</h1>
             <h1 className="text-xl font-semibold">Create Fast And Simple</h1>
@@ -43,7 +43,7 @@ const Service = () => {
               dignissimos hic dolorem inventore…
             </h1>
           </div>
-          <div className=" lg:second-div ">
+          <div className=" lg:w-2/3 w-full ">
             <Image className="w-full h-full" src={imgLg} alt="img" />
           </div>
         </div>
@@ -52,7 +52,7 @@ const Service = () => {
 
           <div className="lg:w-2/3 w-full flex gap-4">
             <div className=" w-[50vw]  rounded-lg">
-              <Image className="rounded-xl h-full" src={imgSm} alt="img" />
+              <Image className="rounded-3xl h-full" src={imgSm} alt="img" />
             </div>
 
             <div className="border-2 border-gray-400 flex flex-col gap-2 justify-center rounded-3xl p-2 w-[50vw] card-gradient2 ">

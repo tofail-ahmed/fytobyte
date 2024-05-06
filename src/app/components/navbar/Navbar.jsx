@@ -51,8 +51,8 @@ const Navbar = () => {
               <Link
                 key={index}
                 href={item.href}
-                className={`text-green-600 text-xl m-2 ${
-                  pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
+                className={`text-fuchsia-700 text-xl m-2 ${
+                  pathName === item.href ? "border-b-2 border-b-fuchsia-700" : ""
                 }`}
               >
                 {item.label}
@@ -76,8 +76,8 @@ const Navbar = () => {
             <Link
               key={index}
               href={item.href}
-              className={`text-green-600 text-xl m-2 ${
-                pathName === item.href ? "border-b-2 border-b-yellow-500" : ""
+              className={`text-fuchsia-700 text-xl m-2 ${
+                pathName === item.href ? "border-b-2 border-b-fuchsia-700" : ""
               }`}
             >
               {item.label}s

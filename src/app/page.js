@@ -6,7 +6,9 @@ import Image from "next/image";
 import ball from "../../public/assets/ball.png";
 import Service from "./components/navbar/Service/Service.jsx";
 import { useThemeContext } from "./lib/provider/ThemeContext";
-
+import Solution from "./components/solution/Solution.jsx";
+import Knowledge from "./components/knowledge/Knowledge.jsx"
+import News from "./components/News/News.jsx"
 const HeroSection = () => {
   const { dark } = useThemeContext();
 
@@ -25,6 +27,9 @@ const HeroSection = () => {
 
       <BallImage />
       <Service />
+      <Solution/>
+      <Knowledge/>
+      <News/>
     </div>
   );
 };
