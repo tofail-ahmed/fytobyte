@@ -2,6 +2,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer.jsx"
 import {ThemeProvider,useThemeContext} from "./lib/provider/ThemeContext"
 
 const inter = Inter({ subsets: ["latin"] });
@@ -31,7 +32,9 @@ function RootContent({ children }) {
             <Navbar />
           </div>
           {children}
+          <Footer/>
         </div>
+        
       </body>
     </html>
   );
