@@ -9,7 +9,7 @@ import { usePathname } from "next/navigation";
 import { MdWifiCalling3 } from "react-icons/md";
 import { useThemeContext } from "../../lib/provider/ThemeContext";
 import Container from "../Container/Conatiner";
-import { Button, Navbar } from "flowbite-react";
+import { CiMenuKebab } from "react-icons/ci";
 
 const Navsbar = () => {
   const pathName = usePathname();
@@ -17,31 +17,52 @@ const Navsbar = () => {
 
   return (
     <Container className="z-50">
-      <Navbar fluid rounded className="relative z-50 backdrop-blur-lg ">
-        <Navbar.Brand href="https://flowbite-react.com">
-          <Image
-            src={logo}
-            className="lg:w-[300px] w-[200px] sm:h-9"
-            alt="Flowbite React Logo"
-          />
-          {/* <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-black">
-            Flowbite React
-          </span> */}
-        </Navbar.Brand>
-        <div className="flex md:order-2">
-          {/* <Button>Get started</Button> */}
-          <Navbar.Toggle />
+      <div className="navbar relative backdrop-blur-xl rounded-xl z-50 flex justify-between items-center">
+        <div className="navbar-start">
+          <div className="dropdown">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost lg:hidden sm:navbar-end"
+            >
+              <CiMenuKebab />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-400/50 rounded-box w-auto"
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Parent</a>
+              </li>
+              <li>
+                <a>Item 3</a>
+              </li>
+            </ul>
+          </div>
+          <Image className="w-[200px] lg:w-[400px] absolute sm:right-0 " src={logo} alt="img" />
         </div>
-        <Navbar.Collapse>
-          <Navbar.Link href="#" active>
-            Home
-          </Navbar.Link>
-          <Navbar.Link href="#">About</Navbar.Link>
-          <Navbar.Link href="#">Services</Navbar.Link>
-          <Navbar.Link href="#">Pricing</Navbar.Link>
-          <Navbar.Link href="#">Contact</Navbar.Link>
-        </Navbar.Collapse>
-      </Navbar>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <details>
+                <summary>Parent</summary>
+              </details>
+            </li>
+            <li>
+              <a>Item 3</a>
+            </li>
+          </ul>
+        </div>
+        <div className="navbar-end">
+          <a className="btn">Button</a>
+        </div>
+      </div>
     </Container>
   );
 };
