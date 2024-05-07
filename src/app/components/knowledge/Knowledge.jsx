@@ -12,7 +12,7 @@ const Knowledge = () => {
         <div data-aos="zoom-in" className="flex justify-center items-center mx-auto">
           <span
             className={`text-center  text-lg font-semibold p-2 border-2 rounded-3xl ${
-              dark ? "border-white" : "border-black"
+              dark ? "border-blck" : "border-black"
             }  flex justify-center items-center`}
           >
             Knowledge Base
