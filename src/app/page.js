@@ -12,46 +12,13 @@ import News from "./components/News/News.jsx";
 import { motion } from "framer-motion";
 
 const HeroSection = () => {
-  const [clicked, setClicked] = useState(false);
-  const [animationPosition, setAnimationPosition] = useState({ x: 0, y: 0 });
+
 
   const { dark } = useThemeContext();
 
-  const handleBackgroundClick = (event) => {
-    setClicked(true);
-    // Get the mouse coordinates relative to the clicked element
-    const x = event.clientX - event.currentTarget.offsetLeft;
-    const y = event.clientY - event.currentTarget.offsetTop;
-
-    // Set the animation position based on the mouse coordinates
-    setAnimationPosition({ x, y });
-
-    setTimeout(() => {
-      setClicked(false);
-      // Reset animation position after a delay (e.g., 1 second)
-      setAnimationPosition({ x: 0, y: 0 });
-    }, 1000); // Adjust the delay duration as needed
-  };
+ 
   return (
-    <div className="h-auto " onClick={handleBackgroundClick}>
-      {clicked && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }} // Initial animation state
-          animate={{
-            opacity: 1,
-            scale: 1,
-            x: animationPosition.x,
-            y: animationPosition.y,
-          }} // Animation to play when clicked
-          transition={{ duration: 0.5 }} // Animation duration
-          style={{
-            position: "absolute",
-            backgroundColor: "blue",
-            width: 100,
-            height: 100,
-          }}
-        />
-      )}
+    <div className="h-auto z-50">
       <div
         className="hidden lg:block bg-cover bg-center absolute inset-0"
         style={{ backgroundImage: "url('/assets/bg.png')" }}
@@ -91,12 +58,17 @@ const ButtonGroup = ({ dark }) => {
   return (
     <div className="flex justify-center items-center gap-8">
       <button
-        className={`${dark? "bg-white text-black" : "bg-black text-white"} p-2 rounded-md lg:text-lg text-sm`}
+        data-aos="fade-up"
+        className={`${
+          dark ? "bg-white text-black" : "bg-black text-white"
+        } p-2 rounded-md lg:text-lg text-sm`}
       >
         Get Started
       </button>
       <button
-        className={`${dark? "bg-white text-black" : "bg-black text-white"} p-2 rounded-md lg:text-lg text-sm`}
+        className={`${
+          dark ? "bg-white text-black" : "bg-black text-white"
+        } p-2 rounded-md lg:text-lg text-sm`}
       >
         Join Us
       </button>
@@ -108,7 +80,9 @@ const BallImage = () => {
   return (
     <div className="absolute inset-0 flex justify-center items-center z-1 lg:top-[500px] top-[50px]">
       <Image
-        className="w-full lg:w-[40vw] md:w-[30vw] sm:w-[20vw] xs:w-[10vw]"
+        data-aos="zoom-in"
+        data-aos-duration="2000"
+        className="w-full lg:w-[40vw] md:w-[30vw] sm:w-[40vw] xs:w-[40vw]"
         src={ball}
         alt="ball"
       />

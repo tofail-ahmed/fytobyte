@@ -7,11 +7,11 @@
     }
     
     .card-gradient2{
-      background-image: linear-gradient(to bottom right, #f306f359, #a006fa)
+      background-image: linear-gradient(to bottom up, #f306f359, #a006fa)
     }
     .card-gradient1{
       background-image: linear-gradient(to bottom left,#f306f359, #a006fa)
     }
     .card-gradient3{
-      background-image: linear-gradient(to bottom right,#a006fa,#f306f359 )
+      background-image: linear-gradient(to bottom up,#a006fa,#f306f359 )
     }

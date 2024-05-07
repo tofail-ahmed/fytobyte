@@ -8,7 +8,9 @@ import { useEffect } from "react";
 
 const Footer = () => {
   useEffect(() => {
-    AOS.init();
+    AOS.init({
+      offset: -450
+    });
   }, []);
   return (
     <div className="flex justify-center items-center my-20 mx-4">
