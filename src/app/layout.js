@@ -1,7 +1,9 @@
 "use client";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/navbar/Navbar";
+
+
+import Navbar from "./components/navbar/Navsbar";
 import Footer from "./components/footer/Footer.jsx";
 import { ThemeProvider, useThemeContext } from "./lib/provider/ThemeContext";
 import ParticlesComponent from "./components/partilces";
