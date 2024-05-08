@@ -9,7 +9,7 @@ import { useThemeContext } from "./lib/provider/ThemeContext";
 import Solution from "./components/solution/Solution.jsx";
 import Knowledge from "./components/knowledge/Knowledge.jsx";
 import News from "./components/News/News.jsx";
-import { motion } from "framer-motion";
+
 
 const HeroSection = () => {
 
@@ -59,6 +59,7 @@ const ButtonGroup = ({ dark }) => {
     <div className="flex justify-center items-center gap-8">
       <button
         data-aos="fade-up"
+        data-aos-offset="0"
         className={`${
           dark ? "bg-white text-black" : "bg-black text-white"
         } p-2 rounded-md lg:text-lg text-sm`}

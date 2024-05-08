@@ -1,0 +1,5 @@
+.navbar-end {
+      display: flex;
+      flex-direction: row; /* Ensure items are arranged horizontally */
+      align-items: center; /* Align items vertically */
+    }

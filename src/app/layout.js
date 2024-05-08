@@ -3,10 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 
-import Navbar from "./components/navbar/Navsbar";
 import Footer from "./components/footer/Footer.jsx";
 import { ThemeProvider, useThemeContext } from "./lib/provider/ThemeContext";
 import ParticlesComponent from "./components/partilces";
+import Navsbar from "./components/navbar/Navsbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,7 +41,7 @@ function NavbarContainer() {
   return (
     <div className={inter.className}>
      <div className="pt-4">
-     <Navbar />
+     <Navsbar />
      </div>
     </div>
   );

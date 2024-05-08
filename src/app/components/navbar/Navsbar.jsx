@@ -1,73 +1,83 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import logo from "../../../../public/assets/logo1.png";
 import { FaMoon } from "react-icons/fa";
 import { MdSunny } from "react-icons/md";
-import logo from "../../../../public/assets/logo1.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MdWifiCalling3 } from "react-icons/md";
 import { useThemeContext } from "../../lib/provider/ThemeContext";
-import Container from "../Container/Conatiner";
-import { CiMenuKebab } from "react-icons/ci";
+import Container from "../Container/Conatiner"
 
 const Navsbar = () => {
-  const pathName = usePathname();
   const { dark, toggleTheme } = useThemeContext();
+  const pathName = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <Container className="z-50">
-      <div className="navbar relative backdrop-blur-xl rounded-xl z-50 flex justify-between items-center">
-        <div className="navbar-start">
-          <div className="dropdown">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost lg:hidden sm:navbar-end"
-            >
-              <CiMenuKebab />
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-slate-400/50 rounded-box w-auto"
-            >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Parent</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
-            </ul>
-          </div>
-          <Image className="w-[200px] lg:w-[400px] absolute sm:right-0 " src={logo} alt="img" />
-        </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <details>
-                <summary>Parent</summary>
-              </details>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
-        </div>
+    <div className=" relative z-50 navbar bg-slate-400/50 backdrop-blur-xl w-[90vw] rounded-2xl mx-auto">
+  <div className="navbar-start">
+    <div className="dropdown">
+      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
-    </Container>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>Item 1</a></li>
+        <li>
+          <a>Parent</a>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </li>
+        <li><a>Item 3</a></li>
+      </ul>
+    </div>
+    <a className="btn btn-ghost text-xl">daisyUI</a>
+  </div>
+  <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal px-1">
+      <li><a>Item 1</a></li>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul className="p-2">
+            <li><a>Submenu 1</a></li>
+            <li><a>Submenu 2</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a>Item 3</a></li>
+    </ul>
+  </div>
+  <div className="navbar-end">
+    <a className="btn">Button</a>
+  </div>
+</div>
+  );
+};
+
+const NavItem = ({ path, currentPath, children }) => {
+  const isActive = currentPath === path;
+  return (
+    <li className="m-2">
+      <Link href={path} className={`text-[#224192] text-xl ${
+        isActive ? "border-b-2 border-b-[#224192]" : ""
+      }`}>
+        {children}
+      </Link>
+    </li>
   );
 };
 
 export default Navsbar;
+
+
+
 
 // "use client";
 // import React from "react";
