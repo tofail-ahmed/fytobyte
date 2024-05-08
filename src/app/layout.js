@@ -74,7 +74,7 @@ function Body({ children }) {
     <body
       className={`${
         dark ? "text-white bg-slate-900" : "text-white bg-black"
-      } overflow-x-hidden min-h-screen`}
+      }  min-h-screen`}
     >
       {children}
     </body>

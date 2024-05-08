@@ -7,57 +7,77 @@ import { MdSunny } from "react-icons/md";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useThemeContext } from "../../lib/provider/ThemeContext";
-import Container from "../Container/Conatiner"
+import Container from "../Container/Conatiner";
+import { ImMenu4, ImMenu3 } from "react-icons/im";
 
 const Navsbar = () => {
   const { dark, toggleTheme } = useThemeContext();
   const pathName = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleNavbar = () => {
-    setIsOpen(!isOpen);
+  const [dropDown, setDropDown] = useState(false);
+  const handleDropDown = () => {
+    setDropDown(!dropDown);
   };
-
   return (
-    <div className=" relative z-50 navbar bg-slate-400/50 backdrop-blur-xl w-[90vw] rounded-2xl mx-auto">
-  <div className="navbar-start">
-    <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+    <div className=" relative z-50 navbar bg-slate-400/50 backdrop-blur-xl w-[70vw] rounded-2xl mx-auto">
+      <div className="navbar-start">
+        <div className="dropdown">
+          <div
+            onClick={handleDropDown}
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost lg:hidden"
+          >
+            <span className="text-3xl">
+              {dropDown ? <ImMenu4 /> : <ImMenu3 />}
+            </span>
+          </div>
+          {dropDown && (
+            <ul
+              onClick={handleDropDown}
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a>Item 1</a>
+              </li>
+              <li>
+                <a>Parent</a>
+              </li>
+              <li>
+                <a>Item 3</a>
+              </li>
+            </ul>
+          )}
+        </div>
+        <a className="btn btn-ghost text-xl">daisyUI</a>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Item 1</a></li>
-        <li>
-          <a>Parent</a>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </li>
-        <li><a>Item 3</a></li>
-      </ul>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <a>Item 1</a>
+          </li>
+          <li>
+            <details>
+              <summary>Parent</summary>
+              <ul className="p-2">
+                <li>
+                  <a>Submenu 1</a>
+                </li>
+                <li>
+                  <a>Submenu 2</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <a>Item 3</a>
+          </li>
+        </ul>
+      </div>
+      <div className="navbar-end">
+        <a className="btn">Button</a>
+      </div>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li>
-        <details>
-          <summary>Parent</summary>
-          <ul className="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
-  <div className="navbar-end">
-    <a className="btn">Button</a>
-  </div>
-</div>
   );
 };
 
